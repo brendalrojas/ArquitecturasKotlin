@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/imgSport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_space_min"
+        android:contentDescription="@string/item_event_description_sport"
+        tools:src="@drawable/ic_water_polo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+        android:id="@+id/tvWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_event_warning"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@id/imgSport"
+        app:layout_constraintBottom_toTopOf="@id/imgSport"/>
+
+    <TextView
+        android:id="@+id/tvSport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceTitleMedium"
+        android:layout_marginHorizontal="@dimen/common_space_default"
+        tools:text="Nombre del deporte"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgSport"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvResults"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceLabelMedium"
+        tools:text="1ºEspaña\n2ºArgentina\n3ºUruguay"
+        app:layout_constraintStart_toStartOf="@id/tvSport"
+        app:layout_constraintEnd_toEndOf="@id/tvSport"
+        app:layout_constraintTop_toBottomOf="@id/tvSport"/>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/common_space_min"
+        app:layout_constraintStart_toStartOf="@id/tvSport"
+        app:layout_constraintEnd_toEndOf="@id/tvSport"
+        app:layout_constraintTop_toBottomOf="@id/tvResults"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
