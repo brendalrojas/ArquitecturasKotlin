@@ -9,7 +9,7 @@ sealed class SportEvent {
         val sportName: String? = null,
         val results: List<String>? = null,
         val isWarning: Boolean? = false,
-        val getImgRest: Int? = when (sportKey) {
+        val getImgRest: Int = when (sportKey) {
             1 -> R.drawable.ic_soccer
             2 -> R.drawable.ic_weight_lifter
             3 -> R.drawable.ic_gymnastics

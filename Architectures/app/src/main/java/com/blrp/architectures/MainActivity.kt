@@ -2,6 +2,7 @@ package com.blrp.architectures
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -25,12 +26,11 @@ import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
 
-    private val results = listOf<SportEvent.ResultSuccess>()
+    private val results = mutableListOf<SportEvent.ResultSuccess>()
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setUpSubscribers()
 
         setContent {
@@ -48,7 +48,10 @@ class MainActivity : ComponentActivity() {
         lifecycleScope.launch {
             EventBus.instance().subscribe<SportEvent> { event ->
                 when (event) {
-                    is SportEvent.ResultSuccess -> results.plus(event)
+                    is SportEvent.ResultSuccess -> {
+                        results.add(event)
+                    }
+
                     else -> {}
                 }
             }
@@ -59,7 +62,6 @@ class MainActivity : ComponentActivity() {
         lifecycleScope.launch {
             val events = getResultEventsInRealtime()
             events.forEach {
-                delay(someTime())
                 EventBus.instance().publish(it)
             }
         }
@@ -68,6 +70,7 @@ class MainActivity : ComponentActivity() {
     override fun onStart() {
         super.onStart()
         getEvents()
+
     }
 
     private fun someTime(): Long = Random.nextLong(500, 2_000)

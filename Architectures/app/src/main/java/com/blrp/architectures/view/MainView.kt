@@ -1,6 +1,7 @@
 package com.blrp.architectures.view
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -25,6 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.blrp.architectures.R
 import com.blrp.architectures.data.SportEvent
 import com.blrp.architectures.data.getResultEventsInRealtime
@@ -32,37 +34,17 @@ import com.blrp.architectures.ui.theme.ArchitecturesTheme
 
 
 @Composable
-fun MainViewScreen(results: List<SportEvent.ResultSuccess>) {
+fun MainViewScreen(
+    results: MutableList<SportEvent.ResultSuccess>,
+) {
 
-
-    LazyColumn {
-        items(results) { result ->
-            ItemView(
-                sportEvent = SportEvent.ResultSuccess(
-                    sportKey = result.sportKey,
-                    sportName = result.sportName,
-                    results = result.results
-                )
-            )
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
+    ) {
+        items(items = results) {
+            ItemView(sportEvent = it)
         }
-    }
-
-
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    val results = listOf(
-        SportEvent.ResultSuccess(
-            sportKey = 1,
-            sportName = "Fútbol",
-            results = listOf("Italia", "Perú", "Corea del Sur")
-        )
-    )
-
-    ArchitecturesTheme {
-        MainViewScreen(results)
     }
 }
