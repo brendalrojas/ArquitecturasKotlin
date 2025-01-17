@@ -1,4 +1,4 @@
-package com.blrp.architectures
+package com.blrp.architectures.ui.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,9 +10,14 @@ class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        contentApp()
+    }
+
+    private fun contentApp() {
         setContent {
             ArchitecturesTheme {
-
+                WineView()
             }
         }
     }
