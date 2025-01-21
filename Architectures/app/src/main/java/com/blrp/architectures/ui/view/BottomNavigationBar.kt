@@ -23,13 +23,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.blrp.architectures.R
 import com.blrp.architectures.ui.theme.raleway
 import com.blrp.architectures.ui.view.data.BottomNavItem
 
 @Composable
-fun BottomNavigationBar(navController: NavController, items: List<BottomNavItem>) {
+fun BottomNavigationBar(navController: NavHostController, items: List<BottomNavItem>, ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
@@ -59,7 +60,7 @@ fun BottomNavigationBar(navController: NavController, items: List<BottomNavItem>
                     },
                     icon = {
                         Icon(
-                            painter = painterResource(id = item.icon),
+                            painter = painterResource(id = item.icon ?: R.drawable.home),
                             modifier = Modifier
                                 .height(23.dp),
                             contentDescription = null,
@@ -67,7 +68,7 @@ fun BottomNavigationBar(navController: NavController, items: List<BottomNavItem>
                     },
                     label = {
                         Text(
-                            text = item.title,
+                            text = item.title ?: "",
                             fontFamily = FontFamily(Font(R.font.raleway_medium)),
                         )
                     },

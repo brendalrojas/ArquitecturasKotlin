@@ -10,11 +10,11 @@ import com.blrp.architectures.R
 
 // Set of Material typography styles to start with
 val raleway = FontFamily(
+    Font(R.font.raleway_medium),
     Font(R.font.raleway_black),
     Font(R.font.raleway_bold),
     Font(R.font.raleway_extrabold),
     Font(R.font.raleway_italic),
-    Font(R.font.raleway_medium),
     Font(R.font.raleway_regular),
     Font(R.font.raleway_semibold),
     Font(R.font.raleway_thin)
