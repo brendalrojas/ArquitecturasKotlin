@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
@@ -64,7 +64,7 @@ fun LoginScreen(navController: NavHostController) {
                 onValueChange = { },
                 label = {
                     Text(
-                        text = "Usuario",
+                        text = stringResource(R.string.user),
                         fontFamily = FontFamily(Font(R.font.raleway_medium)),
                         fontSize = 14.sp
                     )
@@ -79,7 +79,7 @@ fun LoginScreen(navController: NavHostController) {
                 onValueChange = { },
                 label = {
                     Text(
-                        text = "Contraseña",
+                        text = stringResource(R.string.password),
                         fontFamily = FontFamily(Font(R.font.raleway_medium)),
                         fontSize = 14.sp
                     )
@@ -97,7 +97,7 @@ fun LoginScreen(navController: NavHostController) {
                 })
             {
                 Text(
-                    text = "Ingresar",
+                    text = stringResource(R.string.login),
                     fontFamily = FontFamily(Font(R.font.raleway_semibold)),
                     color = Color.White,
                     fontSize = 14.sp,
@@ -105,7 +105,7 @@ fun LoginScreen(navController: NavHostController) {
             }
 
             Text(
-                text = "¿Olvidaste tu contraseña?",
+                text = stringResource(id = R.string.forgot_password),
                 fontFamily = FontFamily(Font(R.font.raleway_medium)),
                 color = Color(0xFF7b65d1),
                 fontSize = 12.sp,
