@@ -9,9 +9,7 @@ import com.blrp.architectures.ui.view.data.ScreenRoutes
 
 @Composable
 fun RootNav() {
-
     val navController = rememberNavController()
-
     NavHost(
         navController = navController,
         startDestination = ScreenRoutes.SecondNav.route
