@@ -14,7 +14,7 @@ fun PrincipalScreen(
 ) {
     val navController = rememberNavController()
 
-    val items = listOf(
+    val items = mutableListOf(
         BottomNavItem.Home,
         BottomNavItem.Favorite,
         BottomNavItem.Promo,

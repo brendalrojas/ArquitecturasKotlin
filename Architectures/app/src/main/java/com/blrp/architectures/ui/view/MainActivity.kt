@@ -9,6 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.blrp.architectures.ui.navigate.RootNav
 import com.blrp.architectures.ui.theme.ArchitecturesTheme
+import retrofit2.Retrofit
 
 class MainActivity : ComponentActivity() {
 
@@ -30,5 +31,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
 }
 

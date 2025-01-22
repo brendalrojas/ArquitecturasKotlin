@@ -60,7 +60,7 @@ fun BottomNavigationBar(navController: NavHostController, items: List<BottomNavI
                     },
                     icon = {
                         Icon(
-                            painter = painterResource(id = item.icon ?: R.drawable.home),
+                            painter = painterResource(id = item.icon),
                             modifier = Modifier
                                 .height(23.dp),
                             contentDescription = null,
@@ -68,7 +68,7 @@ fun BottomNavigationBar(navController: NavHostController, items: List<BottomNavI
                     },
                     label = {
                         Text(
-                            text = item.title ?: "",
+                            text = item.title,
                             fontFamily = FontFamily(Font(R.font.raleway_medium)),
                         )
                     },

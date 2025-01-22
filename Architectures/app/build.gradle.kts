@@ -69,5 +69,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("androidx.compose.material:material:1.4.2")
+    implementation("com.squareup.retrofit2:retrofit:2.10.0")
+    implementation(libs.retrofit)
+    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    implementation("com.squareup.retrofit2:converter-gson:2.3.0")
+
 }
 
