@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -68,12 +71,20 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("androidx.compose.material:material:1.4.2")
-    implementation("com.squareup.retrofit2:retrofit:2.10.0")
+    implementation(libs.androidx.material.v142)
     implementation(libs.retrofit)
-    implementation("com.google.code.gson:gson:2.11.0")
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    implementation("com.squareup.retrofit2:converter-gson:2.3.0")
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+    implementation(libs.converter.gson)
+
+    // Hilt dependencies
+    implementation(libs.hilt.android)
+    ksp(libs.symbol.processing.api)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.common)
+    implementation(libs.androidx.hilt.work)
+    implementation(libs.androidx.hilt.navigation.compose)
+
 
 }
 

@@ -4,5 +4,5 @@ import com.blrp.architectures.domain.model.WineModel
 import kotlinx.coroutines.flow.Flow
 
 interface WineRepository {
-    fun getWines(): Flow<List<WineModel>>
+    suspend fun getWines(): Flow<List<WineModel>>
 }

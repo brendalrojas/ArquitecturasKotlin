@@ -5,8 +5,6 @@ import com.blrp.architectures.utils.Constants
 import retrofit2.http.GET
 
 interface WineApiService {
-
     @GET(Constants.PATH_WINES)
     suspend fun getWines(): List<WineResponse>
-
 }
