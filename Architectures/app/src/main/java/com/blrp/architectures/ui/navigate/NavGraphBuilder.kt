@@ -17,6 +17,6 @@ fun NavGraphBuilder.secondNav(
         composable(route = ScreenRoutes.Login.route) {
             LoginScreen(navController = navController)
         }
-        // vistas que no tienen bottom bar
+        // views without bottom bar
     }
 }
