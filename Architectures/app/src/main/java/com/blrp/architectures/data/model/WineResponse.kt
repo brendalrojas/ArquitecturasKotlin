@@ -12,17 +12,3 @@ data class WineResponse(
     @SerializedName("location") val location: String? = null,
     @SerializedName("image") val image: String? = null,
 )
-
-fun WineResponse.toWineModel(): WineModel {
-    return WineModel(
-        id = id,
-        winery = winery,
-        wine = wine,
-        rating = RatingModel(
-            reviews = rating?.reviews,
-            average = rating?.average,
-        ),
-        location = location,
-    )
-
-}

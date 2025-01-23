@@ -20,6 +20,7 @@ hiltVersion = "2.51.1"
 hiltCommon = "1.2.0"
 hiltWork = "1.2.0"
 symbolProcessingApi = "2.0.0-1.0.21"
+roomVersion = "2.6.1"
 
 [libraries]
 androidx-material-v142 = { module = "androidx.compose.material:material", version.ref = "materialVersion" }
@@ -48,6 +49,8 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltCompiler" }
 symbol-processing-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "symbolProcessingApi" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
+room-android = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

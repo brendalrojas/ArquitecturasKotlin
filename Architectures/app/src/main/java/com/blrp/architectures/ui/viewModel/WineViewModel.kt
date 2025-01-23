@@ -21,13 +21,26 @@ class WineViewModel @Inject constructor(
     val wineData: StateFlow<List<WineModel>?> get() = _wineData
 
     init {
-        getWines()
+        saveWine()
+        getAllWines()
     }
 
-    private fun getWines() {
+    private fun saveWine() {
         viewModelScope.launch {
             wineUseCase.invoke().collect {
+                it.forEach { wine ->
+                    wineUseCase.insertWine(wine)
+                }
+            }
+        }
+    }
+
+    private fun getAllWines() {
+        viewModelScope.launch {
+            wineUseCase.getAllWines().collect {
                 _wineData.value = it
+                Log.d("wineblrp", "wineList: $it")
+
             }
         }
     }
