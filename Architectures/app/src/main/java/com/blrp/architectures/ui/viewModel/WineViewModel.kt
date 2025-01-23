@@ -7,6 +7,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.blrp.architectures.domain.model.WineModel
 import com.blrp.architectures.domain.usecase.WineUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -26,7 +27,7 @@ class WineViewModel @Inject constructor(
     }
 
     private fun saveWine() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             wineUseCase.invoke().collect {
                 it.forEach { wine ->
                     wineUseCase.insertWine(wine)
@@ -36,7 +37,7 @@ class WineViewModel @Inject constructor(
     }
 
     private fun getAllWines() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             wineUseCase.getAllWines().collect {
                 _wineData.value = it
                 Log.d("wineblrp", "wineList: $it")
