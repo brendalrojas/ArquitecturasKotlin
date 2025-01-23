@@ -14,10 +14,7 @@ class WineRepositoryImpl @Inject constructor(
 ) : WineRepository {
 
     override suspend fun getWines(): Flow<List<WineModel>> = flow {
-        val data: List<WineModel> = wineService.getWines().map { wine ->
-            wine.toWineModel()
-        }
-        emit(data)
+        emit(wineService.getWines().map { it.toWineModel() })
     }
 
 }

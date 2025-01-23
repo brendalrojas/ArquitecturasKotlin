@@ -27,10 +27,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.blrp.architectures.R
 import com.blrp.architectures.ui.view.data.ScreenRoutes
+import com.blrp.architectures.ui.viewModel.WineViewModel
 import com.blrp.architectures.utils.navigateAndReplaceStartRoute
 
 @Composable
-fun LoginScreen(navController: NavHostController) {
+fun LoginScreen(navController: NavHostController, wineViewModel: WineViewModel) {
 
     Box(
         modifier = Modifier

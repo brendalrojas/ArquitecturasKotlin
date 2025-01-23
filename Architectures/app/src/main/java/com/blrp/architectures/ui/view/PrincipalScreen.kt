@@ -7,9 +7,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.blrp.architectures.ui.navigate.HomeNavGraph
 import com.blrp.architectures.ui.view.data.BottomNavItem
+import com.blrp.architectures.ui.viewModel.WineViewModel
 
 @Composable
 fun PrincipalScreen(
+    wineViewModel: WineViewModel,
     logout: () -> Unit,
 ) {
     val navController = rememberNavController()
@@ -32,7 +34,8 @@ fun PrincipalScreen(
     ) { paddingValues ->
         HomeNavGraph(
             modifier = Modifier.padding(paddingValues),
-            navController = navController
+            navController = navController,
+            wineViewModel = wineViewModel
         )
     }
 }

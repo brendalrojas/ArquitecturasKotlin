@@ -13,10 +13,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
 
-   @Singleton
-   @Provides
+    @Singleton
+    @Provides
     fun provideWineRepository(
-        wineService: WineApiService
+        wineService: WineApiService,
     ): WineRepository {
         return WineRepositoryImpl(wineService)
     }

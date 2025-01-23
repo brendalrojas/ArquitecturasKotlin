@@ -10,11 +10,13 @@ import com.blrp.architectures.ui.view.screens.FavoriteScreen
 import com.blrp.architectures.ui.view.screens.HomeScreen
 import com.blrp.architectures.ui.view.screens.ProfileScreen
 import com.blrp.architectures.ui.view.screens.PromosScreen
+import com.blrp.architectures.ui.viewModel.WineViewModel
 
 @Composable
 fun HomeNavGraph(
     navController: NavHostController,
     modifier: Modifier = Modifier,
+    wineViewModel: WineViewModel,
 ) {
     NavHost(
         navController = navController,
@@ -22,19 +24,19 @@ fun HomeNavGraph(
         startDestination = ScreenRoutes.Home.route
     ) {
         composable(route = ScreenRoutes.Home.route) {
-            HomeScreen(navController = navController, modifier = modifier)
+            HomeScreen(navController = navController, modifier = modifier, wineViewModel)
         }
 
         composable(route = ScreenRoutes.Favorite.route) {
-            FavoriteScreen(navController = navController, modifier = modifier)
+            FavoriteScreen(navController = navController, modifier = modifier, wineViewModel)
         }
 
         composable(route = ScreenRoutes.Promo.route) {
-            PromosScreen(navController = navController, modifier = modifier)
+            PromosScreen(navController = navController, modifier = modifier, wineViewModel)
         }
 
         composable(route = ScreenRoutes.Profile.route) {
-            ProfileScreen(navController = navController, modifier = modifier)
+            ProfileScreen(navController = navController, modifier = modifier, wineViewModel)
         }
 
     }
